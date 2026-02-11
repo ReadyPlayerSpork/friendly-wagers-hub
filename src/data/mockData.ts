@@ -149,8 +149,75 @@ export const chatMessages: ChatMessage[] = [
   { id: "m10", userId: "u5", username: "Sarah", text: "GG everyone, that was a wild game", timestamp: "2:40 PM", type: "message" },
 ];
 
-export const friendRequests = [
+export interface FriendRequest {
+  id: string;
+  name: string;
+  avatar: string;
+  activity: string;
+  points: number;
+}
+
+export interface Friend {
+  id: string;
+  name: string;
+  avatar: string;
+  points: number;
+  wins: number;
+  losses: number;
+  status: "online" | "offline";
+}
+
+export interface BetHistoryItem {
+  id: string;
+  description: string;
+  points: number;
+  won: boolean | null;
+  game: string;
+  date: string;
+  category: string;
+}
+
+export interface LeaderboardEntry {
+  rank: number;
+  userId: string;
+  name: string;
+  avatar: string;
+  points: number;
+  wins: number;
+  winRate: number;
+}
+
+export const friendRequests: FriendRequest[] = [
   { id: "f1", name: "Tyler Johnson", avatar: "🏄", activity: "Crushing it in 3 chats", points: 890 },
   { id: "f2", name: "Emma Wilson", avatar: "🎯", activity: "5-game win streak!", points: 1340 },
   { id: "f3", name: "Carlos Rivera", avatar: "⚽", activity: "New to ChatKings", points: 100 },
+];
+
+export const friends: Friend[] = [
+  { id: "u2", name: "Andy", avatar: "🧔", points: 980, wins: 14, losses: 11, status: "online" },
+  { id: "u3", name: "Joe", avatar: "😎", points: 1420, wins: 22, losses: 5, status: "online" },
+  { id: "u4", name: "Mike", avatar: "🤠", points: 760, wins: 10, losses: 15, status: "offline" },
+  { id: "u5", name: "Sarah", avatar: "👩", points: 1100, wins: 16, losses: 9, status: "online" },
+  { id: "u6", name: "Tyler Johnson", avatar: "🏄", points: 890, wins: 12, losses: 8, status: "offline" },
+];
+
+export const betHistory: BetHistoryItem[] = [
+  { id: "b1", description: "BYU wins by 10+", points: 50, won: true, game: "BYU vs Utah", date: "Sep 22", category: "Winner" },
+  { id: "b2", description: "Over 45.5 total points", points: 25, won: false, game: "Bears vs Eagles", date: "Sep 15", category: "Over/Under" },
+  { id: "b3", description: "Eagles -3.5", points: 30, won: true, game: "Eagles vs Bears", date: "Sep 15", category: "Point Spread" },
+  { id: "b4", description: "QB 250+ passing yards", points: 50, won: true, game: "Knicks vs Clippers", date: "Sep 10", category: "Player Predictions" },
+  { id: "b5", description: "Home Team Wins", points: 25, won: false, game: "Seahawks vs Broncos", date: "Sep 8", category: "Winner" },
+  { id: "b6", description: "Under 42.5", points: 10, won: null, game: "Packers vs Bears", date: "Oct 12", category: "Over/Under" },
+  { id: "b7", description: "Away Team Wins", points: 100, won: true, game: "BYU vs Baylor", date: "Oct 5", category: "Winner" },
+];
+
+export const leaderboard: LeaderboardEntry[] = [
+  { rank: 1, userId: "u3", name: "Joe", avatar: "😎", points: 1420, wins: 22, winRate: 81 },
+  { rank: 2, userId: "u1", name: "You", avatar: "👤", points: 1250, wins: 18, winRate: 72 },
+  { rank: 3, userId: "u5", name: "Sarah", avatar: "👩", points: 1100, wins: 16, winRate: 64 },
+  { rank: 4, userId: "u2", name: "Andy", avatar: "🧔", points: 980, wins: 14, winRate: 56 },
+  { rank: 5, userId: "f2", name: "Emma Wilson", avatar: "🎯", points: 1340, wins: 20, winRate: 77 },
+  { rank: 6, userId: "f1", name: "Tyler Johnson", avatar: "🏄", points: 890, wins: 12, winRate: 60 },
+  { rank: 7, userId: "u4", name: "Mike", avatar: "🤠", points: 760, wins: 10, winRate: 40 },
+  { rank: 8, userId: "f3", name: "Carlos Rivera", avatar: "⚽", points: 100, wins: 1, winRate: 25 },
 ];
